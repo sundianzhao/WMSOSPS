@@ -125,7 +125,7 @@ namespace WMSOSPS.Cloud.Application.SystemSecurity
                 //var redis = new ContentCache(DBEnum.用户信息);
                // redis.HSet<OperatorModel>("Login_ManagerUserInfo", operatorModel.UserCode, operatorModel);
 
-               // LogHelper.Info("帐号：" + UserName + ",登录系统IP:" + thisIp, OpType.Login, null, "LoginApp-CheckLogin", "", ViewLevel.Admin);
+                LogHelper.Info("帐号：" + UserName + ",登录系统IP:" + thisIp, OpType.Login, null, "LoginApp-CheckLogin", "", ViewLevel.Admin);
                 #endregion 
                 content.Success = true;
                 content.Msg = "登录成功";
