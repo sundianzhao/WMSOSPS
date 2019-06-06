@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<script src="~/Content/ZH/js/app/YdkManage/SAPOILType/Form.js"></script>
+<form id="form1">
+    <input id="F_ID" type="hidden" />
+    <input id="F_IsRealName" type="hidden" value="0" />
+    <div style="padding-top: 20px; margin-right: 20px;">
+        <table class="form">
+            <tr>
+                <th class="formTitle">库区编号</th>
+                <td class="formValue">
+                    <input id="F_Location" name="F_Location" type="text" class="form-control required" placeholder="请输入库区编号" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">物料号</th>
+                <td class="formValue">
+                    <input id="F_OILCODE" name="F_OILCODE" type="text" class="form-control required" placeholder="请输入物料号" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">油品名称</th>
+                <td class="formValue">
+                    <select id="F_OILName" name="F_OILName" class="form-control required">
+                        <option value="">==请选择==</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">品名</th>
+                <td class="formValue">
+                    <input id="F_INVOICE" name="F_INVOICE" type="text" class="form-control required" placeholder="请输入品名" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">型号</th>
+                <td class="formValue">
+                    <input id="F_TYPE" name="F_TYPE" type="text" class="form-control required " placeholder="请输入型号" />
+                </td>
+            </tr>
+
+            <tr>
+                <th class="formTitle" valign="top" style="padding-top: 5px;">
+                    物料描述
+                </th>
+                <td class="formValue">
+                    <textarea id="F_DESCRIPTION" name="F_DESCRIPTION" class="form-control" style="height: 60px;"></textarea>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</form>

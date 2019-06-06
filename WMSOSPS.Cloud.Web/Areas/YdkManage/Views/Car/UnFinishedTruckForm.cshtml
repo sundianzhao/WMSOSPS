@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "UnFinishedTruckForm";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<script src="~/Content/ZH/js/app/YdkManage/Car/UnFinishedTruckForm.js"></script>
+<form id="form1">
+    <div style="padding-top: 20px; margin-right: 20px;" id="BasicInfo">
+        <table class="form">
+            <tr>
+                <th class="formTitle">提货单号</th>
+                <td class="formValue">
+                    <input id="F_OrderNo" name="F_OrderNo" type="text" class="form-control required" />
+                </td>
+            </tr> 
+            <tr>
+                <th class="formTitle">提货单位</th>
+                <td class="formValue">
+                    <input id="F_Company" name="F_Company" type="text" class="form-control required" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">车牌号</th>
+                <td class="formValue">
+                    <input id="F_TruckNo" name="F_TruckNo" type="text" class="form-control required" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">毛重(吨)：</th>
+                <td class="formValue">
+                    <input id="F_GrossWeight" name="F_GrossWeight" type="text" class="form-control required " />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">皮重(吨)：</th>
+                <td class="formValue">
+                    <input id="F_TruckWeight" name="F_TruckWeight" type="text" class="form-control required " />
+                </td>
+            </tr> 
+            <tr>
+                <th class="formTitle">净重(吨)：</th>
+                <td class="formValue">
+                    <input id="F_NetWeight" name="F_NetWeight" type="text" class="form-control required " />
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</form>

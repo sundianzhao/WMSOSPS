@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "YdkForm";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<script src="~/Content/ZH/js/app/YdkManage/YdkForm.js?v=1.0"></script>
+<form id="form1">
+    <div style="padding-top: 20px; margin-right: 20px;">
+        <table class="form">
+            <tr>
+                <th class="formTitle">编号</th>
+                <td class="formValue">
+                    <input id="F_Code" name="F_Code" type="text" class="form-control required" placeholder="请输入编号" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">名称</th>
+                <td class="formValue">
+                    <input id="F_Name" name="F_Name" type="text" class="form-control required" placeholder="请输入名称" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">所属企业</th>
+                <td class="formValue">
+                    <select id="F_BelongTo" name="F_BelongTo" class="form-control required">
+                        <option value="">==请选择==</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">计量方式</th>
+                <td class="formValue">
+                    <select id="F_BillMethod" name="F_BillMethod" class="form-control required">
+                        <option value="">==请选择==</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">误差(kg)</th>
+                <td class="formValue">
+                    <input id="F_AllowError" name="F_AllowError" type="text" class="form-control required digits" placeholder="请输入误差" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">IP地址:</th>
+                <td class="formValue">
+                    <input id="F_IPAddress" name="F_IPAddress" type="text" class="form-control" placeholder="请输入IP地址" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle" valign="top" style="padding-top: 5px;">
+                    地点
+                </th>
+                <td class="formValue">
+                    <textarea id="F_Position" name="F_Position" class="form-control" style="height: 60px;"></textarea>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</form>
+

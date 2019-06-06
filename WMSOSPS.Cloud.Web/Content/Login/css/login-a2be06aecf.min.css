@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    background: #323b5c url(../images/bg-d5b1ef604d.jpg) no-repeat center;
+    background-size: cover;
+    font-family: PingFang SC,Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans
+}
+
+.login {
+    width: 420px;
+    height: 481px;
+    margin: -240.5px 0 0 -200px;
+    position: absolute;
+    top: 50%;
+    left: 50%
+}
+
+.logo {
+    width: 304px;
+    height: 51px;
+    margin: 0 auto 30px;
+    overflow: hidden;
+    text-indent: -9999px;
+    position: relative
+}
+
+    .logo i {
+        display: block;
+        width: 304px;
+        height: 51px;
+        background: url(../images/logo-cec369ba5f.png) no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+
+.box {
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px
+}
+
+.box-hd {
+    height: 44px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+    line-height: 44px;
+    font-size: 14px;
+    color: #000
+}
+
+.box-hd-tab {
+    display: inline-block;
+    width: 207px;
+    color: #999;
+    cursor: pointer
+}
+
+.box-hd-tab_current {
+    background-color: #fff;
+    font-weight: 700;
+    color: #000
+}
+
+.box-bd {
+    padding: 28px 34px
+}
+
+.box-bd_hide {
+    display: none
+}
+
+.form-input {
+    height: 44px;
+    margin: 0 0 18px 0;
+    border: 1px solid #e5e5e5;
+    line-height: 44px;
+    position: relative;
+    transition: all .3s
+}
+
+.form-input-placehold {
+    padding: 0 4px;
+    color: #9e9e9e;
+    font-size: 12px;
+    line-height: 1;
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    transition: all .3s
+}
+
+.form-input input {
+    display: block;
+    width: 278px;
+    height: 42px;
+    margin: 0 0 0 16px;
+    border: 0;
+    outline: 0;
+    line-height: 42px
+}
+
+.form-input .icon {
+    position: absolute;
+    top: 11px;
+    right: 12px
+}
+
+.form-input:hover {
+    border-color: #ccc
+}
+
+.form-input.error {
+    border-color: #f77
+}
+
+    .form-input.error .form-input-placehold {
+        color: #f77
+    }
+
+.form-input.focus {
+    border-color: #89b8f2
+}
+
+    .form-input.focus .form-input-placehold {
+        color: #89b8f2
+    }
+
+.form-input_verifyCode input {
+    width: 126px
+}
+
+.form-input_verifyCode .form-verifyCode {
+    font-size: 12px;
+    line-height: 25px;
+    position: absolute;
+    top: 8px;
+    right: 16px
+}
+
+    .form-input_verifyCode .form-verifyCode img {
+        vertical-align: middle;
+        cursor: pointer
+    }
+
+    .form-input_verifyCode .form-verifyCode a {
+        text-decoration: none;
+        color: #2d80e8;
+        cursor: pointer
+    }
+
+.form-input_smsVerifyCode input {
+    width: 216px
+}
+
+.form-input_smsVerifyCode .form-smsVerifyCode {
+    font-size: 12px;
+    line-height: 25px;
+    position: absolute;
+    top: 8px;
+    right: 16px
+}
+
+.form-input_smsVerifyCode a {
+    color: #2d80e8;
+    cursor: pointer
+}
+
+.form-submit {
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 24px
+}
+
+    .form-submit input {
+        display: block;
+        width: 100%;
+        height: 44px;
+        margin: 0;
+        padding: 0;
+        background-color: #2d80e8;
+        border: 0;
+        color: #fff;
+        font-size: 20px;
+        line-height: 44px;
+        cursor: pointer
+    }
+
+        .form-submit input:hover {
+            background-color: #1972e3
+        }
+
+        .form-submit input:active {
+            background-color: #448eeb
+        }
+
+.icon {
+    display: inline-block;
+    width: 18px;
+    height: 19px;
+    overflow: hidden;
+    background-image: url(../images/icon-f082c4d7de.png);
+    background-repeat: no-repeat
+}
+
+.icon-username {
+    background-position: 0 0
+}
+
+.icon-password {
+    background-position: 0 -19px
+}
+
+.qrcode-img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1px solid #e5e5e5;
+    padding: 18px
+}
+
+.qrcode-tips {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #999
+}

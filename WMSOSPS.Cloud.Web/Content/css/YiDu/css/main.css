@@ -1,0 +1,318 @@
+html,
+body {
+  width: 100%;
+  min-width: 1280px;
+  height: 100%;
+  font-family: "微软雅黑";
+}
+.nav {
+  width: 13%;
+  height: 100%;
+  float: left;
+  overflow-y: auto;
+  background-color: #455761;
+}
+.nav::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #3b4a53;
+}
+.nav::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+.nav::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+.nav::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #71818a;
+}
+.nav .nav-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 55px;
+  height: 55px;
+  background-size: auto 100%;
+  position: relative;
+  top: -2px;
+}
+.nav .nav-link {
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-bottom: 20px;
+}
+.nav .nav-link a.on {
+  color: #fff;
+  cursor: default;
+  background-color: #13a1b0;
+  background: -webkit-linear-gradient(left, #0fa1b4, #5bba5b);
+  background: -o-linear-gradient(right, #0fa1b4, #5bba5b);
+  background: -moz-linear-gradient(right, #0fa1b4, #5bba5b);
+  background: linear-gradient(to right, #0fa1b4, #5bba5b);
+}
+.nav .nav-link a.on .nav-icon {
+  background-position: right center;
+}
+.nav .nav-item {
+  width: 100%;
+  margin-bottom: 2px;
+}
+.nav .nav-one {
+  margin-bottom: 2px;
+}
+.nav .nav-one,
+.nav .nav-link-title {
+  display: block;
+  width: 100%;
+  height: 60px;
+  padding-left: 10.5%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 60px;
+  font-size: 14px;
+  color: #92a7b9;
+  background-color: #3b4a53;
+  cursor: pointer;
+  position: relative;
+}
+.nav .nav-one i,
+.nav .nav-link-title i {
+  display: block;
+  width: 37px;
+  height: 37px;
+  position: absolute;
+  right: 3%;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  background-image: url(../img/icon_jt.png);
+  background-size: auto 100%;
+}
+.nav .nav-list {
+  width: 100%;
+  display: none;
+}
+.nav .nav-list a {
+  display: block;
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  color: #fff;
+  padding-left: 37%;
+  padding-left: calc(10.5% + 55px);
+  padding-left: -moz-calc(10.5% + 55px);
+  padding-left: -webkit-calc(10.5% + 55px);
+  font-size: 14px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.nav .nav-item-on .nav-link-title {
+  color: #fff;
+}
+.nav .nav-item-on .nav-link-title .nav-icon,
+.nav .nav-item-on .nav-link-title i {
+  background-position: right center;
+}
+.nav-logo {
+  width: 100%;
+  padding-top: 12%;
+  padding-bottom: 10%;
+}
+.nav-logo img {
+  display: block;
+  width: 40%;
+  margin: 0 auto;
+}
+.nav-title {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 14px;
+  color: #92a7b9;
+  background-color: #3b4a53;
+  margin-bottom: 2px;
+}
+.main-content {
+  width: 87%;
+  height: 100%;
+  float: right;
+  position: relative;
+  background-color: #ecf0ef;
+}
+.main-header {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #31393c;
+}
+.main-header .user-msg {
+  height: 100%;
+  float: left;
+}
+.main-header .user-msg .tx {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  margin-top: 9px;
+  margin-right: 8px;
+}
+.main-header .user-msg .tx img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.main-header .user-msg span {
+  display: block;
+  height: 100%;
+  float: left;
+  font-size: 14px;
+  color: #fff;
+}
+.main-header .main-header-seting {
+  width: 42%;
+  min-width: 545px;
+  float: right;
+  height: 100%;
+}
+.main-header .search {
+  width: 330px;
+  height: 28px;
+  border: 1px solid #455761;
+  border-radius: 28px;
+  overflow: hidden;
+  margin-top: 12px;
+  float: left;
+}
+.main-header .search .search-input {
+  display: block;
+  width: 288px;
+  height: 100%;
+  line-height: 28px;
+  float: left;
+  background-color: transparent;
+  border: 0;
+  padding-left: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #fff;
+}
+.main-header .search .search-submit {
+  display: block;
+  float: right;
+  width: 40px;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  background: url(../img/icon_search.png) no-repeat center center;
+  background-size: 45%;
+}
+.main-header .main-header-btns {
+  float: right;
+  width: 180px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 10px;
+}
+.main-header .main-header-btns a {
+  display: block;
+  width: 80px;
+  height: 100%;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.main-header .main-header-btns a img {
+  width: 14px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  margin-right: 7px;
+}
+.main-header .main-header-btns a.btn-help {
+  float: left;
+  background-color: #e1e4e7;
+  color: #4c4c4c;
+}
+.main-header .main-header-btns a.btn-exit {
+  float: right;
+  background-color: #65ae34;
+  color: #fff;
+}
+.color-time {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  margin-top: 10px;
+  background-color: #13a1b0;
+  background: -webkit-linear-gradient(left, #0fa1b4, #5bba5b);
+  background: -o-linear-gradient(right, #0fa1b4, #5bba5b);
+  background: -moz-linear-gradient(right, #0fa1b4, #5bba5b);
+  background: linear-gradient(to right, #0fa1b4, #5bba5b);
+}
+.color-time .date {
+  width: 295px;
+  height: 100%;
+  float: left;
+  background-color: #13a1b0;
+  background: -webkit-linear-gradient(left, #0fa1b4, #5bba5b);
+  background: -o-linear-gradient(right, #0fa1b4, #5bba5b);
+  background: -moz-linear-gradient(right, #0fa1b4, #5bba5b);
+  background: linear-gradient(to right, #0fa1b4, #5bba5b);
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  border-right: 4px solid #ecf0ef;
+}
+.color-time .date img {
+  width: 22px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+  margin-right: 15px;
+}
+.content-box {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 110px;
+  bottom: 0;
+  padding: 20px;
+  padding-bottom: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.content-box iframe {
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (max-width: 1450px) {
+  .nav-title {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 1320px) {
+  .nav-title {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,0 +1,140 @@
+﻿.PictureViewMask
+{
+	display: block;
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+	-khtml-opacity: 0.4;
+	height: 0px;
+	width: 0px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-color: #000;
+}
+.PictureViewNext {
+    position: fixed;
+    right: 0px;
+    top: 200px;
+    cursor: pointer;
+    width: 50px;
+    height: 100px;
+    background-image: url('Image/PictureViewNext.png'); 
+}
+.PictureViewPrev
+{
+	position: fixed;
+	top: 200px;
+	left: 0px;
+	cursor: pointer;
+	width: 50px;
+	height: 100px;
+	background-image: url('Image/PictureViewPrev.png');
+}
+.PictureViewClose
+{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background-image: url('Image/PictureViewClose.png');
+}
+.PictureViewClose:hover
+{
+	background-image: url('Image/PictureViewClose_2.png');
+}
+.PictureViewImg
+{
+	cursor: move;
+	position: absolute;
+}
+.ViewWindow
+{
+	color: #000000;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	cursor: move;
+}
+.PictureViewRaised
+{
+	background: none transparent scroll repeat 0% 0%;
+	width: 202px;
+	height: 40px;
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 40%;
+}
+.PictureViewRaised b
+{
+	display: block;
+	font-size: 1px;
+	overflow: hidden;
+	height: 1px;
+	border-left: #434343 1px solid;
+	background: #434343;
+	border-right: #434343 1px solid;
+}
+.PictureViewRaised .b4b
+{
+	margin: 0px 0.9px;
+	height: 2px;
+}
+.PictureViewRaised .b3b
+{
+	margin: 0px 2.4px;
+}
+.PictureViewRaised .b2b
+{
+	margin: 0px 3.5px;
+}
+.PictureViewRaised .b-1b
+{
+	margin: 0px 5px;
+}
+.PictureViewRaised .b1b
+{
+	margin: 0px 7.5px;
+	background: #434343;
+}
+.PictureViewRaised .PictureViewBoxcontent
+{
+	border-left: #434343 1px solid;
+	display: block;
+	background: #434343;
+	border-right: #434343 1px solid;
+	width: 200px;
+	height: 40px;
+}
+.PictureViewClockwise
+{
+	height: 35px;
+	width: 35px;
+	margin-top: 3px;
+	cursor: pointer;
+    margin-left:50px;
+	float:left;
+	background-image: url('Image/PictureViewClockwise_1.png');
+}
+.PictureViewClockwise:hover
+{
+	background-image: url('Image/PictureViewClockwise_2.png');
+}
+.PictureViewAnticlockwise
+{
+	height: 35px;
+	width: 35px;
+	margin: 0px 30px;
+	margin-top: 3px;
+	cursor: pointer;
+	float:left;
+	background-image: url('Image/PictureViewAnticlockwise_1.png');
+}
+
+.PictureViewAnticlockwise:hover
+{
+	background-image: url('Image/PictureViewAnticlockwise_2.png');
+}

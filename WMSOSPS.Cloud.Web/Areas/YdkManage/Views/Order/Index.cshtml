@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script src="~/Content/js/datepicker/WdatePicker.js"></script>
+<script src="~/Content/ZH/js/app/YdkManage/Order/Index.js?v=1.0"></script>
+<style>
+    .search {
+        margin: 0 !important;
+        padding-right: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+        .search form {
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+    .operate {
+        padding-left: 10px;
+        margin-right: 60px;
+        display: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+        .operate ul {
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+            .operate ul li {
+                display: inline-block;
+                float: none;
+            }
+
+                .operate ul li a {
+                    padding: 6px 12px;
+                }
+
+                .operate ul li a {
+                    padding: 6px 12px;
+                }
+
+    a {
+        color: blue;
+    }
+</style>
+<div class="topPanel">
+    <div class="toolbar">
+        <div class="btn-group">
+            <a class="btn btn-primary" onclick="$.reload()"><span class="glyphicon glyphicon-refresh"></span></a>
+        </div>
+        <div class="btn-group">
+        </div>
+
+        <script>$('.toolbar').authorizeButton()</script>
+    </div>
+    @*<div class="operate" style="">
+        <ul class="nav nav-pills " style="float:left;">
+            <li class="first">已选中<span>1</span>项</li>
+            <li><a id="NF-Details" authorize="yes" class="btn btn-primary" onclick="$.Index.btn_details()"><i class="fa fa-search-plus"></i>查看</a></li> 
+        </ul>
+        <a href="javascript:;" class="close"></a>
+        <script>$('.operate').authorizeButton()</script>
+    </div>*@
+
+    <div class="search">
+        <form class="form-inline" role="form">
+            <div class="input-group" style="width:160px;">
+                <select id="ydk" name="ydk" class="form-control" onchange="$.Index.btn_search()">
+                    <option value="">==选择异地库==</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <input class="form-control" id="txt_keyword" type="text" placeholder="交货单号" style="width:120px;">
+            </div> 
+            <span id="F_StatusTime1Text">时间 起:</span>
+            <div class="input-group">
+                <input id="F_Time1" name="F_Time1" type="text" class="form-control input-wdatepicker" style="width:100px;" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" />
+            </div>
+            <span id="F_StatusTime2Text">止:</span>
+            <div class="input-group">
+                <input id="F_Time2" name="F_Time2" type="text" class="form-control input-wdatepicker" style="width:100px;" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" />
+            </div>
+
+            <div class="input-group">
+                <button id="btn_search" type="button" class="btn  btn-primary"><i class="fa fa-search"></i></button>
+            </div>
+        </form>
+
+    </div>
+    <script>$('.search').authorizeButton()</script>
+</div>
+<div class="gridPanel">
+    <table id="gridList"></table>
+    <div id="gridPager"></div>
+</div>
+

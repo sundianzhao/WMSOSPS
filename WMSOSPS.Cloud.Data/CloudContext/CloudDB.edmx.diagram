@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e25cb6e50f464ca897ad8c5fbec716bf" Name="Diagram1">
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_Area" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_DbBackup" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_FilterIP" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_Items" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_ItemsDetail" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_Log" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_Module" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_ModuleButton" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_ModuleForm" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_ModuleFormInstance" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_Organize" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_Role" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_RoleAuthorize" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_UserLogOn" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_Approve" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_BillMethod" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_Enterprise" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_Group" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_OBillStatus" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_Order" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_OrderStatus" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_User" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_WMS" Width="1.5" PointX="4.75" PointY="14.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_WMSManage" Width="1.5" PointX="14.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_OILType" Width="1.5" PointX="15.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_SAPOIL" Width="1.5" PointX="15.375" PointY="13.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.T_WMSSrvUploadStatus" Width="1.5" PointX="7.375" PointY="16.75" />
+        <EntityTypeShape EntityType="ExamCloudDBModel.Sys_User" Width="1.5" PointX="9.375" PointY="16.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

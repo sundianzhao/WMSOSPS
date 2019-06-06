@@ -1,0 +1,84 @@
+﻿.pd-0 {
+    padding: 0 !important;
+}
+.pdl-0 {
+    padding-left: 0 !important;
+}
+.pdr-0 {
+    padding-right: 0 !important;
+}
+/*系统概览*/
+#areascontent {
+    
+}
+.dashboard-stats .dashboard-stats-item h2 {
+    font-size: 25px; 
+}
+.dashboard-stats .dashboard-stats-item .stat-icon i {
+    font-size: 2em;
+}
+.dashboard-stats .dashboard-stats-item .stat-icon{
+    top: 20px;
+}
+/*系统概览-关键数据实时指标*/
+.dashboard-stats {
+    float: left;
+    width: 20%;
+}
+@media screen and (max-width: 1200px) {
+    .dashboard-stats {
+        float: left;
+        width: 25%;
+    }
+   
+}
+@media screen and (max-width: 1000px) {
+    .dashboard-stats {
+        float: left;
+        width: 33.33%;
+    }
+}
+/*系统概览-用户地域分布图*/
+#areascontent .user-local-map{
+    margin-bottom: 1%; 
+    overflow: hidden;
+}
+#areascontent .user-local-map>div {
+    float: left; 
+    width: 49.75%;
+}
+#areascontent .user-local-map>div:nth-child(1) {
+    margin-right: 0.5%;
+}
+@media screen and (max-width: 1366px) {
+    #areascontent .user-local-map>div {
+        float: none; 
+        width: 100%;
+    }
+    #areascontent .user-local-map>div:nth-child(1) {
+         margin-bottom: 10px;
+        margin-right: 0;
+    }
+}
+/*系统概览-客户案例，通知公告，使用技巧*/
+#areascontent .temp-note-tip {
+    overflow: hidden;
+}
+#areascontent .temp-note-tip>div {
+    float: left;
+    width: 33%;
+    margin-right: 0.5%;
+    box-sizing: border-box;
+}
+#areascontent .temp-note-tip .tip {
+    margin-right: 0;
+}
+@media screen and (max-width: 1125px) {
+    #areascontent .temp-note-tip>div {
+        float: left;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+}

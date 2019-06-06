@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+
+<script>
+    
+    var keyvalue = $.request("UserCode");
+    var SelectNum = 0;
+    var SelectCode = null;
+    $(function () {
+        load();
+    })
+    function load() {
+        $.ajax({
+            type: "post",
+            url: "/YdkManage/Ydk/GetYdkAll?UserCode=" + keyvalue,
+            data: {},
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                var _datayes = data.queryYes;
+                var _datano = data.queryNo;
+                $.each(_datayes, function (i) {
+                    var _vhtml = "<option value=" + _datayes[i].F_Code + ">" + _datayes[i].F_Code + "[" + _datayes[i].F_Name + "]</option>";
+                    $("#SelectInfo").append(_vhtml);
+                });
+                $.each(_datano, function (i) {
+                    var _vhtml = "<option value=" + _datano[i].F_Code + ">" + _datano[i].F_Code + "[" + _datano[i].F_Name + "]</option>";
+                    $("#ALL").append(_vhtml);
+                });
+            }
+        });
+    }
+    function ALLAdd() {
+        var op = $("#SelectInfo option:selected");
+        $("#SelectInfo option[value='" + op.val() + "']").remove();
+        $("#ALL").append(op)
+    }
+    function SelectInfoAdd() {
+        var op = $("#ALL option:selected");
+        $("#ALL option[index='" + op.val() + "']").remove();
+        $("#SelectInfo").append(op)
+    }
+    function SeletcDB() {
+        ALLAdd();
+    }
+    function btn_search() {
+        var txt_keyword = $("#txt_keyword").val();
+
+        $("#ALL option[value='" + txt_keyword + "']").attr("selected", true);
+        $("#SelectInfo option[value='" + txt_keyword + "']").attr("selected", true);
+        if (SelectNum > 0) {
+
+            $("#ALL option[value='" + SelectCode + "']").attr("selected", false);
+            $("#SelectInfo option[value='" + SelectCode + "']").attr("selected", false);
+        }
+        SelectCode = txt_keyword;
+        SelectNum++;
+    }
+    function submitForm() {
+        var str = $("#SelectInfo option").map(function () { return $(this).val(); }).get().join(",")
+        $.ajax({
+            type: "post",
+            url: "/YdkManage/Ydk/SetYdk",
+            data: { "UserCode": keyvalue, "F_WMSCodes": str },
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                if (data.state) {
+                    $.modalMsg("操作成功", "success");
+                    $.modalClose();
+                } else {
+                    $.modalAlert(data.message, "error");
+                }
+            }
+        });
+    }
+</script>
+
+<div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+    <div style="padding-top: 20px; margin-right: 30px;">
+        <div><span style="position:relative;left:1%;">未分配异地库列表</span><span style="position:relative;left:38%;">已选择异地库</span></div>
+        <div style="float:left;width:46%;">
+            <select id="ALL" ondblclick="ALLDB()" multiple="multiple" size="25" style="width:100%;"></select>
+        </div>
+        <div style="float:left;width:7%;position:relative;top:150px;">
+            <ul class="nav nav-pills">
+                <li><a id="NF-delete" authorize="yes" onclick="ALLAdd()"><i class="fa fa-arrow-left"></i></a></li>
+                <li><a id="NF-Details" authorize="yes" onclick="SelectInfoAdd()"><i class="fa fa-arrow-right"></i></a></li>
+            </ul>
+        </div>
+        <div style="float:left;width:46%;">
+            <select id="SelectInfo" ondblclick="SeletcDB()" multiple="multiple" size="25" style="width:100%;"></select>
+        </div>
+    </div>
+
+</div>

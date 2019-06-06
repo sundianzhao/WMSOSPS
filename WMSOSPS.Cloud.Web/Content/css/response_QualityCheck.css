@@ -1,0 +1,17 @@
+﻿/*企业信息管理-质检管理*/
+.panel-left,.panel-right {
+    float:left; 
+    width: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+}
+@media screen and (max-width: 1600px) {
+    .panel-left,.panel-right {
+        float:none; 
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #eee;
+        margin-top: 10px;
+    }
+}

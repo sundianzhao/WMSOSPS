@@ -1,0 +1,509 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/css/framework-font.css" rel="stylesheet" />
+    <link href="~/Content/css/framework-ui.css" rel="stylesheet" />
+    <link href="~/Content/css/response.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery/jquery-2.1.1.min.js"></script>
+    <link href="~/Content/css/framework-theme.css" rel="stylesheet" />
+    <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/framework-theme.css" rel="stylesheet" />
+    <script src="~/Content/js/charts/Chart.js"></script>
+    <script src="~/Content/js/datepicker/DatePicker.js"></script>
+    <script src="~/Content/js/framework-ui.js"></script>
+    <script src="~/Content/js/bootstrap/bootstrap.js"></script>
+    <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/ZH/js/app/Home/DataIndex.js"></script>
+    <script src="~/Content/js/indextab.js"></script>
+    <script>
+            var user = top.clients.user;
+            $(function () {
+               
+
+
+            });
+            function GetPubliccityInfo() {
+                $.ajax({
+                    type: "Get",
+                    url: "/AdvertiseInfoManage/NewPublicityInfo/GetGridList",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.length > 0) {
+                            var strHtml = '';
+                            var length = data.length > 8 ? 8 : data.length;
+                            for (var i = 0; i < length; i++) {
+                                var dr = data[i];
+                                strHtml += " <li><a href=\"javascript: void (0)\";  style=\"cursor:pointer;\" onclick=\"ShowFormPubilic('" + dr.Id + "');\">" + dr.PublicityName + "</a><span class=\"time\">" + new Date(dr.CreateTime).format("yyyy-MM-dd") + "</span></li>";
+
+                                //strHtml += "<li class=\"menu-TTTTTT\"><span  class=\"menu-TTTTTT\" style=\"cursor:pointer;\" onclick=\"ShowFormPubilic(" + dr.nID + ");\">";
+
+                                //strHtml += dr.PublicityName;
+                                //strHtml += "<span class=\"time\">" + new Date(dr.CreateTime).format("yyyy-MM-dd") + "</span></span></li>";
+                            }
+                            $('#ulxcmb').html(strHtml);
+                        }
+                    }
+                });
+            }
+            function NewActivityInfo() {
+                $.ajax({
+                    type: "Get",
+                    url: "/AdvertiseInfoManage/NewActivityInfo/GetFormList",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.length > 0) {
+                            var strHtml = '';
+                            var length = data.length > 8 ? 8 : data.length;
+                            for (var i = 0; i < length; i++) {
+                                var dr = data[i];
+                                strHtml += " <li><a href=\"javascript: void (0)\";  style=\"cursor:pointer;\" onclick=\"ShowForm('" + dr.nID + "');\">" + dr.Title + "</a><span class=\"time\">" + new Date(dr.CreateTime).format("yyyy-MM-dd") + "</span></li>";
+                                //strHtml += "<li class=\"menu-TTTTTT\"><span  class=\"menu-TTTTTT\" style=\"cursor:pointer;\" onclick=\"ShowForm('" + dr.nID + "');\">";
+
+                                //strHtml += dr.Title;
+                                //strHtml += "<span class=\"time\">" + new Date(dr.CreateTime).format("yyyy-MM-dd") + "</span></span></li>";
+                            }
+                            $('#ulFeeWarning').html(strHtml);
+                        }
+                    }
+                });
+            }
+            function initialize() {
+                $.ajax({
+                    url: "/Home/GetModuleSelect",
+                    type: "post",
+                    data: { area: 2 },
+                    dataType: "json",
+                    success: function (result) {
+                        if (result.length == 1) {
+                            $("#SampleLeft").attr("src", result[0].Url);
+                            $("#SampleLeft").attr("data-id", result[0].Url);
+                        }
+                        if (result.length > 1) {
+                            $("#SampleLeft").attr("src", result[0].Url);
+                            $("#SampleLeft").attr("data-id", result[0].Url);
+                            $("#SampleRight").attr("src", result[1].Url);
+                            $("#SampleRight").attr("data-id", result[1].Url);
+                        }
+                    }
+                });
+            }
+            function GetNotice() {
+                $.ajax({
+                    type: "Get",
+                    url: "/SystemManage/Notice/GetPlatformNoticeDefault",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.length > 0) {
+                            var strHtml = '';
+                            var length = data.length > 8 ? 8 : data.length;
+                            for (var i = 0; i < length; i++) {
+                                var dr = data[i];
+                                strHtml += "<li class=\"menu-TTTTTT\"><span  class=\"menu-TTTTTT\" style=\"cursor:pointer;\" onclick=\"btn_examine(" + dr.nID + ");\">";
+                                if (dr.IsTop == "1")
+                                    strHtml += "<font class=\"menu-TTTTTT\" color='#ff0000'style='font-size:10'>【置顶】</font>";
+                                strHtml += dr.Title;
+                                strHtml += "</font><span class=\"time\">" + new Date(dr.JoinTime).format("yyyy-MM-dd") + "</span></span></li>";
+                            }
+                            $('#ulNotice').html(strHtml);
+                        }
+                    }
+                });
+            }
+            function GetFeeWarning() {
+                $.ajax({
+                    url: "/WarmingManage/FeeWarming/GetFeeWarningInfo",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.length > 0) {
+                            var strHtml = '';
+                            for (var i = 0; i < data.length; i++) {
+                                strHtml += "<li class=\"menu-TTTTTT\"><span  class=\"menu-TTTTTT\" style=\"cursor:pointer;\">";
+                                strHtml += "号码【<font class=\"menu-TTTTTT\" color='#4169E1'style='font-size:10'>" + data[i].EnterpriseID + "</font>】截止当前日期，";
+                                strHtml += "剩余话费余额【<font class=\"menu-TTTTTT\" color='#ff0000'style='font-weight: bold'>" + data[i].CallinBalance + "</font>】元，";
+                                strHtml += "剩余可用分钟数【<font class=\"menu-TTTTTT\" color='#ff0000'style='font-weight: bold'>" + data[i].CallInMinute + "</font>】分钟！";
+                                strHtml += "</li>";
+                            }
+                            $('#ulFeeWarning').html(strHtml);
+                        }
+                    }
+                });
+            }
+            function btn_examine(keyValue) {
+                $.modalOpen({
+                    id: "NoticeInfoForm",
+                    title: "公告信息",
+                    url: "/SystemManage/Notice/SearchForm?keyValue=" + keyValue,
+                    width: "800px",
+                    height: "550px",
+                    btn: [],
+                    callBack: null
+                });
+            }
+            //获取关键数据实时指标
+            function GetKeyData() {
+                $.ajax({
+                    url: "/Home/GetModuleSelect",
+                    type: "post",
+                    data: { area: 1 },
+                    dataType: "json",
+                    success: function (result) {
+                        var html = "";
+                        if (user.LoginType == 3) {
+                            $.each(result, function (index, item) {
+                                html += '<div class="dashboard-stats">' +
+                                    '<div class="dashboard-stats-item" style= "background-color: #fc8675;" onclick ="ShowForm(' + item + ')">' +
+                                    '<h2 class="m-top-none">' + item + '</h2>' +
+                                    '<h5>' + index + '</h5>' +
+                                    '<div class="stat-icon">' +
+                                    '<i class="fa fa-user fa-3x"></i>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>';
+
+                            });
+                        } else {
+                            $.each(result, function (index, item) {
+                                var color = "#fc8675";
+                                var calssId = "fa fa-user fa-3x";
+                                var href = "";
+                                var id = "";
+                                if (index == "代理商总量") {
+                                    href = "$.DataIndex.AgentTotal(event)";
+                                    id = "NF-AgentTotal";
+                                }
+                                if (index == "客户总量") {
+                                    color = "#43a5fd";
+                                    calssId = "fa fa-user fa-3x";
+                                    href = "$.DataIndex.CustormerTotal(event)";
+                                    id = "NF-CustormerTotal";
+                                }
+                                if (index.indexOf("平台剩余金额") != -1) {
+                                    color = "#6bafbd";
+                                    calssId = "fa fa-hdd-o fa-3x";
+                                }
+                                if (index.indexOf("400号码数量") != -1) {
+                                    color = "#f3ce85";
+                                    calssId = "fa fa-shopping-cart fa-3x";
+                                    href = "$.DataIndex.NumberTotal(event)";
+                                    id = "NF-NumberTotal";
+                                }
+                                if (index.indexOf("月度续费率") != -1) {
+                                    color = "#949FB1";
+                                    calssId = "fa fa-gavel fa-3x";
+                                    href = "$.DataIndex.RenewalRateMonth(event)";
+                                    id = "NF-RenewalRateMonth";
+                                }
+                                if (index.indexOf("季度续费率") != -1) {
+                                    color = "#65cea7";
+                                    calssId = "fa fa-truck fa-3x";
+                                    href = "$.DataIndex.RenewalRateQuarter(event)";
+                                    id = "NF-RenewalRateQuarter";
+                                }
+                                if (index.indexOf("已实名号码数") != -1) {
+                                    color = "#8470FF";
+                                    calssId = "fa fa-check-square fa-3x";
+                                    href = "$.DataIndex.IsRealNameTotal(event)";
+                                    id = "NF-RealNameTotal";
+                                }
+                                if (index.indexOf("未实名号码数") != -1) {
+                                    color = "#666666";
+                                    calssId = "fa fa-exclamation-triangle fa-3x";
+                                    href = "$.DataIndex.NoRealNameTotal(event)";
+                                    id = "NF-NoRealNameTotal";
+                                }
+                                if (index.indexOf("拆机量") != -1) {
+                                    color = "#949FB2";
+                                    calssId = "fa fa-level-down";
+                                    //href = "$.DataIndex.NoRealNameTotal(event)";
+                                    id = "NF-NoRealNameTotal";
+                                }
+                                if (index.indexOf("电信可选号数量") != -1) {
+                                    color = "#949FB2";
+                                    calssId = "fa fa-print";
+                                    href = "$.DataIndex.TelecomeTotal(event)";
+                                    id = "NF-TelecomeTotal";
+                                }
+                                html += '<div class="dashboard-stats">' +
+                                    '<div class="dashboard-stats-item" id="' + id + '"  style= "background-color: ' + color + ';" onclick ="' + href + '">' +
+                                    '<h2 class="m-top-none">' + item + '</h2>' +
+                                    '<h5>' + index + '</h5>' +
+                                    '<div class="stat-icon">' +
+                                    '<i class="' + calssId + '"></i>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>';
+
+                            });
+                        }
+                        $("#ModuleIndex").html(html);
+                    }
+                });
+            }
+
+            function ShowForm(keyValue) {
+                $.modalOpen({
+                    id: "SearchForm",
+                    title: "查看",
+                    url: "/AdvertiseInfoManage/NewActivityInfo/SearchForm?keyValue=" + keyValue,
+                    width: "800px",
+                    height: "600px",
+                    btn: [],
+                    callBack: null
+                });
+            }
+            function ShowFormPubilic(value) {
+                $.modalOpen({
+                    id: "From",
+                    title: "查看宣传模板",
+                    url: "/AdvertiseInfoManage/NewPublicityInfo/DetailsInfo?keyValue=" + value,
+                    width: "850px",
+                    height: "650px",
+                    btn: null
+                });
+            }
+            function ShowLeft() {
+                if (user.LoginType==1) {
+                    $.ajax({
+                        type: "Get",
+                        url: "/SystemManage/Notice/GetList1",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.length > 0) {
+                                var c1 = "0";
+                                var c2 = "0";
+                                var c3 = "0";
+                                var c4 = "0";
+                                var c5 = "0";
+                                var c6 = "0";
+                                var c7 = "0";
+                                var c8 = "0";
+                                var c9 = "0";
+                                var c10 = "0";
+                                var c11 = "0";
+                                var c12 = "0";
+                                var c13 = "0";
+                                for (var i = 0; i < data.length; i++) {
+                                    switch (data[i].Name) {
+                                        case "意向客户":
+                                            c1 = data[i].Count;
+                                            break;
+                                        case "A":
+                                            c2 = data[i].Count;
+                                            break;
+                                        case "B":
+                                            c3 = data[i].Count;
+                                            break;
+                                        case "C":
+                                            c4 = data[i].Count;
+                                        case "D":
+                                            c5 = data[i].Count;
+                                            break;
+                                        case "签约客户":
+                                            c6 = data[i].Count;
+                                            break;
+                                        case "今日电话数量":
+                                            c7 = data[i].Count;
+                                            break;
+                                        case "今日电话有效":
+                                            c8 = data[i].Count;
+                                        case "今日电话无效":
+                                            c9 = data[i].Count;
+                                        case "今日电话无效":
+                                            c9 = data[i].Count;
+                                        case "本月电话数量":
+                                            c10 = data[i].Count;
+                                        case "本月电话数量有效":
+                                            c11 = data[i].Count;
+                                        case "本月电话数量无效":
+                                            c12 = data[i].Count;
+                                            break;
+                                        case "本月邀约量":
+                                            c13 = data[i].Count;
+                                            break;
+                                    }
+                                }
+                                var htmlStr = "<div style=\"margin-left:20px;margin-top:10px\">";
+                                htmlStr+=" 意向客户数："+c1;
+                                htmlStr+="</div>";
+                                htmlStr+=" <div style=\"margin-left:20px;margin-top:10px\">";
+                                htmlStr+="   A类客户数量："+c2;
+                                htmlStr+=" </div>";
+                                htmlStr+="<div style=\"margin-left:20px;margin-top:10px\">";
+                                htmlStr+="    B类客户数量："+c3;
+                                htmlStr+="</div>";
+                                htmlStr+=" <div style=\"margin-left:20px;margin-top:10px\">";
+                                htmlStr+="     C类客户数量："+c4;
+                                htmlStr+=" </div>";
+                                htmlStr+=" <div style=\"margin-left:20px;margin-top:10px\">";
+                                htmlStr+="     D类客户数量："+c5;
+                                htmlStr+=" </div>";
+                                htmlStr+="  <div style=\"margin-left:20px;margin-top:10px\">";
+                                htmlStr+="      加盟商数量："+c6;
+                                htmlStr+="  </div>";
+
+                                htmlStr+="  <div style=\"margin-left:20px;margin-top:30px\">";
+                                htmlStr+="      今日电话量："+c7+" 有效："+c8+" 无效："+c9;
+                                htmlStr+="  </div>";
+                                htmlStr+=" <div style=\"margin-left:20px;margin-top:20px\">";
+                                htmlStr+="     本月电话量："+c10+" 有效："+c11+" 无效："+c12 ;
+                                htmlStr+="  </div>";
+                                htmlStr+="  <div style=\"margin-left:20px;margin-top:20px\">";
+                                htmlStr+="    本月邀约量："+c13+"";
+                                htmlStr += " </div>";
+                                $("#divleft").html(htmlStr);
+                            }
+                        }
+                    });
+                }
+            }
+            function ShowRight() {
+                if (user.LoginType == 1) {
+                    $.ajax({
+                        type: "Get",
+                        url: "/SystemManage/Notice/GetList2",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.length > 0) {
+                                var c1 = "0";
+                                var c2 = "0";
+
+                                for (var i = 0; i < data.length; i++) {
+                                    switch (data[i].Name) {
+                                        case "学生数量":
+                                            c1 = data[i].Count;
+                                            break;
+                                        case "加盟商数量":
+                                            c2 = data[i].Count;
+                                            break;
+                                    }
+                                }
+                                var htmlStr = "<div style=\"margin-left:20px;margin-top:10px\">";
+                                htmlStr += " 学生数量：" + c1;
+                                htmlStr += "</div>";
+                                htmlStr += " <div style=\"margin-left:20px;margin-top:30px\">";
+                                htmlStr += "   加盟商数量：" + c2;
+                                htmlStr += " </div>";
+                                $("#divright").html(htmlStr);
+                            }
+                        }
+                    });
+                }
+            }
+
+    </script>
+</head>
+<body>
+    <div id="areascontent">
+         欢迎使用本系统！
+    </div>
+     
+    <style>
+        #copyrightcontent {
+            height: 30px;
+            line-height: 29px;
+            overflow: hidden;
+            position: absolute;
+            top: 100%;
+            margin-top: -30px;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #e6e6e6;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .dashboard-stats-item {
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            cursor: pointer;
+            height: 105px;
+            margin-right: 25px;
+            margin-bottom: 10px;
+            padding: 20px 20px;
+            border-radius: 10px;
+        }
+
+            .dashboard-stats-item .m-top-none {
+                margin-top: 2px;
+            }
+
+            .dashboard-stats-item h2 {
+                font-size: 35px;
+                font-family: inherit;
+                line-height: 1.1;
+                font-weight: 500;
+            }
+
+            .dashboard-stats-item h5 {
+                font-size: 14px;
+                font-family: inherit;
+                margin-top: 3px;
+                line-height: 1.1;
+            }
+
+
+            .dashboard-stats-item .stat-icon {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+                opacity: .3;
+            }
+
+        .dashboard-stats i.fa.stats-icon {
+            width: 50px;
+            padding: 20px;
+            font-size: 50px;
+            text-align: center;
+            color: #fff;
+            height: 50px;
+            border-radius: 10px;
+        }
+
+        .panel-default {
+            border: none;
+            border-radius: 0px;
+            margin-bottom: 0px;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+        }
+
+            .panel-default > .panel-heading {
+                color: #777;
+                background-color: #fff;
+                border-color: #e6e6e6;
+                padding: 10px 10px;
+            }
+
+            .panel-default > .panel-body {
+                padding: 10px;
+                padding-bottom: 0px;
+            }
+
+                .panel-default > .panel-body ul {
+                    overflow: hidden;
+                    padding: 0;
+                    margin: 0px;
+                    margin-top: -5px;
+                }
+
+                    .panel-default > .panel-body ul li {
+                        line-height: 27px;
+                        list-style-type: none;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+
+                        .panel-default > .panel-body ul li .time {
+                            color: #a1a1a1;
+                            float: right;
+                            padding-right: 5px;
+                        }
+    </style>
+</body>
+</html>

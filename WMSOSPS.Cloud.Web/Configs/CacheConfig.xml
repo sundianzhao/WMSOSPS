@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CacheList>
+  <Cache Name="RedisCache">
+    <!--是否启用-->
+    <IsTrue>True</IsTrue>
+    <!--redis只读服务器，多个服务器之间使用逗号隔开-->
+    <!--<ReadServer>172.31.254.123:6379</ReadServer>-->
+    <ReadServer>127.0.0.1:6379</ReadServer>
+    <!--redis只写服务器，多个服务器之间使用逗号隔开-->
+    <!--<WriteServer>172.31.254.123:6379</WriteServer>-->
+    <WriteServer>127.0.0.1:6379</WriteServer>
+    <!--默认redis 库-->
+    <RedisDB>用户信息</RedisDB>
+    <!--redis默认过期时间,格式 时：分：秒，最小单位分钟-->
+    <RedisExpireTime>00:30:00</RedisExpireTime>
+  </Cache>
+</CacheList>

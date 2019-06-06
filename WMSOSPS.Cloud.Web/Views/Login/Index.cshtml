@@ -1,0 +1,101 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link href="~/newContent/Login/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/newContent/Login/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/newContent/Login/ionicons.min.css" rel="stylesheet" />
+    <link href="~/newContent/Login/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/newContent/Login/blue.css" rel="stylesheet" />
+    <link href="~/Content/css/framework-font.css" rel="stylesheet" />
+
+    <script src="~/Content/js/jquery/jquery-2.1.1.min.js"></script>
+    <script src="~/Content/js/cookie/jquery.cookie.js"></script>
+    <script src="~/Content/js/Cookie.js"></script>
+    <script src="~/Content/js/dialog/dialog.js"></script>
+    @*<script src="~/Content/js/bootstrap/bootstrap.js"></script>*@
+
+    <script src="~/Content/js/md5/jquery.md5.js"></script>
+    <script src="~/Content/js/Cookie.js"></script>
+    <script src="~/Content/ZH/js/app/LoginNew.js?v=1.0"></script>
+    <style>
+        .login_tips {
+            text-align: center;
+        }
+
+        .tips_msg {
+            height: 30px;
+            line-height: 30px;
+            color: red;
+            margin: 0 auto;
+            border-radius: 5px;
+            width: 300px;
+            font-size: 14px;
+        }
+
+        .form-input_verifyCode .form-verifyCode {
+            font-size: 12px;
+            line-height: 25px;
+            position: absolute;
+            margin-right: 0px;
+            top: 5px;
+            right: 16px
+        }
+    </style>
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box" >
+        <div class="login-logo" style="font-size:25px">
+            <a href="javascript:void(0)"><b>异地库信息管理系统</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg"></p>
+            <form  method="post">
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" id="txt_account" placeholder="用户名">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" id="txt_password" placeholder="密码">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <div class="form-input form-input_verifyCode">
+                        <input id="txt_code" class="form-control" style="width:50%" placeholder="验证码">
+                        <span class="form-verifyCode">
+                            <img id="imgcode" src="~/Login/GetAuthCode" alt="">
+                            <a href="javascript:void(0);" id="switchCode" style="text-decoration: none;">换一张</a>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="row">
+
+                    <!-- /.col -->
+                    <div class="col-xs-4" style="width:100%">
+                         <input id="login_button" class="btn btn-primary btn-block btn-flat" type="button" value="登录">
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+            <div class="login_tips"></div> 
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    
+</body>
+</html>
+

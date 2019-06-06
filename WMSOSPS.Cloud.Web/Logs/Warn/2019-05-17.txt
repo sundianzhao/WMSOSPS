@@ -1,0 +1,9 @@
+﻿
+＝＝＝＝＝＝＝＝＝＝                             
+【日志级别】WARN                              
+【记录时间】2019-05-17 13:59:56,569                             
+【线程编号】[6]                             
+【执行时间】[7410]毫秒                             
+【出错文件】D:\new\prc\WMSOSPS.Application\WMSOSPS.Cloud.Code\Logger\LogHelper.cs                             
+【出错行号】104                             
+WMSOSPS.Cloud.Code.Logger.LogMessage
