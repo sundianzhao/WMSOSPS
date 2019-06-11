@@ -768,6 +768,7 @@
     <Content Include="Areas\YdkManage\Views\Order\Index.cshtml" />
     <Content Include="Areas\YdkManage\Views\Order\Form.cshtml" />
     <Content Include="Areas\SystemManage\Views\User\ShowAffiliation.cshtml" />
+    <Content Include="Areas\YdkManage\Views\OILType\Form.cshtml" />
     <None Include="Content\js\linq\linq-vsdoc.js" />
     <Content Include="Content\js\linq\linq.js" />
     <Content Include="Content\js\linq\linq.min.js" />
@@ -1325,6 +1326,7 @@
     <Content Include="Content\ZH\js\app\YdkManage\Car\UnFinishedTruckForm.js" />
     <Content Include="Content\ZH\js\app\YdkManage\Car\UnFinishedTruckIndex.js" />
     <Content Include="Content\ZH\js\app\YdkManage\OILType\Index.js" />
+    <Content Include="Content\ZH\js\app\YdkManage\OILType\Form.js" />
     <Content Include="Content\ZH\js\app\YdkManage\Order\Index.js" />
     <Content Include="Content\ZH\js\app\YdkManage\SAPOILType\Form.js" />
     <Content Include="Content\ZH\js\app\YdkManage\SAPOILType\Index.js" />

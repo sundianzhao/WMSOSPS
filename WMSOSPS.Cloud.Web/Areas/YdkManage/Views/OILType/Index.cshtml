@@ -55,19 +55,20 @@
             <a class="btn btn-primary" onclick="$.reload()"><span class="glyphicon glyphicon-refresh"></span></a>
         </div>
         <div class="btn-group">
-            <a id="NF-add" authorize="yes" class="btn btn-primary dropdown-text" onclick="$.Index.btn_add()"><i class="fa fa-plus"></i>添加</a>
+            <a id="NF-Add" authorize="yes" class="btn btn-primary dropdown-text" onclick="$.Index.btn_add()"><i class="fa fa-plus"></i>添加</a>
         </div>
 
         <script>$('.toolbar').authorizeButton()</script>
     </div>
-    @*<div class="operate" style="">
+    <div class="operate" style="">
         <ul class="nav nav-pills " style="float:left;">
             <li class="first">已选中<span>1</span>项</li>
+            <li><a id="NF-Update" class="btn btn-primary" authorize="yes" onclick="$.Index.btn_update()"><i class="fa fa-pencil-square-o">修改</i></a></li>
             <li><a id="NF-Delete" class="btn btn-primary" authorize="yes" onclick="$.Index.btn_delete()"><i class="fa fa-trash-o">删除</i></a></li>
         </ul>
         <a href="javascript:;" class="close"></a>
         <script>$('.operate').authorizeButton()</script> 
-    </div>*@
+    </div>
 
     <div class="search">
         <table style="display:none">

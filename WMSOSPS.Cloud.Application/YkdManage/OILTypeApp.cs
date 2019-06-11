@@ -63,6 +63,63 @@ namespace WMSOSPS.Cloud.Application.YkdManage
             }
             return list;
         }
+
+        /// <summary>
+        /// 获取实体
+        /// </summary>
+        /// <param name="keyValue"></param>
+        /// <returns></returns>
+        public object GetFormJsonOILType(string keyValue)
+        {
+            int fId = ConvertVal.GetValInt(keyValue);
+            var m = _repository.IQueryableAsNoTracking<T_OILType>(p => p.F_ID == fId).FirstOrDefault();
+            return m;
+        }
+
+        public object SumbitOILType(T_OILType entity,string keyValue)
+        {
+            var op = OperatorProvider.Provider.GetCurrent();
+            try
+            {
+                if (string.IsNullOrEmpty(op.UserCode))
+                {
+                    return new { state = false, message = "当前登录人失效,请重新登录！" };
+                }
+                if (string.IsNullOrEmpty(keyValue))
+                {
+                    //添加
+                    _repository.Insert(entity);
+                }
+                else
+                {
+                    //编辑
+                    _repository.Update(entity);
+                }
+                return new { state = true };
+            }
+            catch (Exception ex)
+            {
+                return new { state = false, message = ex.ToString() };
+            }
+        }
+
+        public object DeleteOILType(string keyValue)
+        {
+            try
+            {
+                int fId = ConvertVal.GetValInt(keyValue);
+                if (_repository.Delete<T_OILType>(p => p.F_ID == fId) > 0)
+                {
+                    return new { state = true, message = "删除成功！" };
+                }
+                return new { state = false, message = "删除失败！" };
+            }
+            catch (Exception ex)
+            {
+                return new { state = false, message = "删除失败！" +ex.ToString()};
+            }
+          
+        }
         #endregion
 
         #region SAP油品配置

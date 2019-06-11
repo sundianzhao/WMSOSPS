@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WMSOSPS.Cloud.Application.YkdManage;
 using WMSOSPS.Cloud.Code.Json;
 using WMSOSPS.Cloud.Code.Web;
+using WMSOSPS.Cloud.Data.CloudContext;
 
 namespace WMSOSPS.Cloud.Web.Areas.YdkManage.Controllers
 {
@@ -23,6 +24,31 @@ namespace WMSOSPS.Cloud.Web.Areas.YdkManage.Controllers
                     page = pagination.page,
                     records = pagination.records
                 };
+                return Content(data.ToJson());
+            }
+        }
+
+        public ActionResult Sumbit(T_OILType entity, string keyValue)
+        {
+            using (var app = new OILTypeApp())
+            {
+                var data = app.SumbitOILType(entity, keyValue);
+                return Content(data.ToJson());
+            }
+        }
+        public ActionResult GetFormJson(string keyValue)
+        {
+            using (var app = new OILTypeApp())
+            {
+                var data = app.GetFormJsonOILType(keyValue);
+                return Content(data.ToJson());
+            }
+        }
+        public ActionResult DeleteOILType(string keyValue)
+        {
+            using (var app=new OILTypeApp())
+            {
+                var data = app.DeleteOILType(keyValue);
                 return Content(data.ToJson());
             }
         }

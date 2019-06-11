@@ -43,14 +43,30 @@
                 title: "添加",
                 url: "/YdkManage/OILType/Form",
                 width: "450px",
-                height: "500px",
+                height: "400px",
+                callBack: function (iframeId) {
+                    top.frames[iframeId].$.Form.submitForm();
+                }
+            });
+        },
+        btn_update: function () {
+            var keyValue = $("#gridList").jqGridRowValue().F_ID;
+            if (keyValue == "" || keyValue == null) {
+                return $.modalAlert("请选择一条记录", "warning");
+            }
+            $.modalOpen({
+                id: "Form",
+                title: "添加",
+                url: "/YdkManage/OILType/Form?keyValue=" + keyValue,
+                width: "450px",
+                height: "400px",
                 callBack: function (iframeId) {
                     top.frames[iframeId].$.Form.submitForm();
                 }
             });
         },
         btn_delete: function () {
-            var keyValue = $("#gridList").jqGridRowValue().F_Code;
+            var keyValue = $("#gridList").jqGridRowValue().F_ID;
             if (keyValue == "" || keyValue == null) {
                 return $.modalAlert("请选择一条记录", "warning");
             }
@@ -58,7 +74,7 @@
                 if (r) {
                     $.ajax({
                         type: "Post",
-                        url: "/YdkManage/OILType/DeleteInfo",
+                        url: "/YdkManage/OILType/DeleteOILType",
                         data: { keyValue: keyValue },
                         dataType: "json",
                         success: function (data) {

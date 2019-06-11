@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+
+<script src="~/Content/ZH/js/app/YdkManage/OILType/Form.js?v=1.1.0"></script>
+<form id="form1">
+    <input id="F_ID" type="hidden" /> 
+    <div style="padding-top: 20px; margin-right: 20px;">
+        <table class="form">
+            <tr>
+                <th class="formTitle">油品名称</th>
+                <td class="formValue">
+                    <input id="F_Name" name="F_Name" type="text" class="form-control required" placeholder="请输入油品名称" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">所属企业</th>
+                <td class="formValue">
+                   <select id="F_EnterpriseCode" name="F_EnterpriseCode" class="form-control required"></select>
+                </td>
+            </tr>  
+        </table>
+    </div>
+</form>
+
+
